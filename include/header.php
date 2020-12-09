@@ -23,18 +23,23 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
     <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link active" href="index.php">About Us <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link active" href="index.php">Products <span class="sr-only">(current)</span></a>
-    <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="index.php">Home <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active" href="about.php">About Us <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active" href="product.php">Products <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active" href="contact.php">Contact <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="Privacy.php">Privacy Policy <span class="sr-only">(current)</span></a>
       <a class="nav-item nav-link" href="viewrecords.php">View Attendees</a>  
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
 
       <ul class="navbar-nav ml-auto">  
                 <?php 
                     if(!isset($_SESSION['userid'])){
                 ?>                      
                     <li class="nav-item">
-                        <a class="nav-link" href="login.php">Login</a>
+                    <ul class="nav navbar-nav navbar-right">
+                       
+                        <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                      </ul>
+                    <!-- <a class="nav-link" href="login.php">Login</a> -->
                     </li>  
                 <?php }else {?>  
                     <li>
