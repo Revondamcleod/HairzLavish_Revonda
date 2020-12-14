@@ -420,7 +420,7 @@ textarea.input100 {
   }
 
   .contact100-more {
-    width: 40%;
+    width: 10%;
   }
 }
 
@@ -430,7 +430,7 @@ textarea.input100 {
   }
 
   .contact100-more {
-    width: 100%;
+    width: 15%;
   }
 }
 
@@ -517,6 +517,8 @@ textarea.input100 {
     opacity: 1;
   }
 }
+
+
 
 
 
