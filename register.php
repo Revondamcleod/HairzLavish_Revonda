@@ -1,85 +1,69 @@
+
 <?php
 $title = "Index";
 require_once "include/header.php";
-//require_once 'db/conn.php';
+require_once 'db/conn.php';
 
 //get all Specialties
-//$result = $crud->getSpecialties();
+$result = $crud->getGender();
 ?>
-<div>
-<link rel="stylesheet" href="css/style.css">
+<h1 class="text-center">Registration for IT Conference</h1>
 
-<div class="main">
 
-<div class="container">
-    <div class="booking-content">
-        <div class="booking-image">
-            <img class="booking-img" src="img\logo2.png" alt="Booking Image">
-        </div>
-        <div class="booking-form">
-            <form id="booking-form">
-                <h2>Booking place for your dinner!</h2>
-                <div class="form-group form-input">
-                    <input type="text" name="name" id="name" value="" required/>
-                    <label for="name" class="form-label">Your name</label>
-                </div>
-                <div class="form-group form-input">
-                    <input type="number" name="phone" id="phone" value="" required />
-                    <label for="phone" class="form-label">Your phone number</label>
-                </div>
-                <div class="form-group">
-                    <div class="select-list">
-                        <select name="time" id="time" required>
-                            <option value="">Time</option>
-                            <option value="6pm">6:00 PM</option>
-                            <option value="7pm">7:00 PM</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="select-list">
-                        <select name="food" id="food" required>
-                            <option value="">Food</option>
-                            <option value="seasonalfish">Seasonal steamed fish</option>
-                            <option value="assortedmushrooms">Assorted mushrooms</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="form-radio">
-                    <label class="label-radio"> Select Your Dining Space</label>
-                    <div class="radio-item-list">
-                        <span class="radio-item">
-                            <input type="radio" name="number_people" value="2" id="number_people_2" />
-                            <label for="number_people_2">2</label>
-                        </span>
-                        <span class="radio-item active">
-                            <input type="radio" name="number_people" value="4" id="number_people_4" checked="checked" />
-                            <label for="number_people_4">4</label>
-                        </span>
-                        <span class="radio-item">
-                            <input type="radio" name="number_people" value="6" id="number_people_6" />
-                            <label for="number_people_6">6</label>
-                        </span>
-                        <span class="radio-item">
-                            <input type="radio" name="number_people" value="8" id="number_people_8" />
-                            <label for="number_people_8">8</label>
-                        </span>
-                        <span class="radio-item">
-                            <input type="radio" name="number_people" value="10" id="number_people_10" />
-                            <label for="number_people_10">10</label>
-                        </span>
-                    </div>
-                </div>
+<form method="post" enctype="multipart/form-data" action="success.php">
 
-                <div class="form-submit">
-                    <input type="submit" value="Book now" class="submit" id="submit" name="submit" />
-                    <a href="#" class="vertify-booking">Verify your booking info from your phone</a>
-                </div>
-            </form>
-        </div>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input required type="text" class="form-control" id="firstname" name="firstname">
     </div>
+
+    <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input required type="text" class="form-control" id="lastname" name="lastname">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email Address</label>
+        <input required type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+
+    <div class="form-group">
+        <label for="address">Address</label>
+        <input required type="text" class="form-control" id="address" name="address" >
+    </div>
+
+    <div class="form-group">
+                    <label for="gender">Gender</label>
+                    <select class="form-control" id="gender" name="gender" >
+                        <?php while ($r = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+                            <option value="<?php echo $r['gender_id']; ?>"><?php echo $r['name']; ?></option>
+                        <?php } ?>
+                    </select>
+                </div>
+                
+    <div class="custom-file">
+        <input type="file" accept="image/*" class="custom-file-input" id="avatar" name="avatar">
+        <label class="custom-file-label" for="avatar">Choose file</label>
+        <small id="avatar" class="form-text text-danger">File Upload is Optional.</small>
+    </div>
+    <br />
+    <br />
+
+
+    <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>
+    <a href="index.php" class=" btn btn-danger btn-block">Cancel </a>
+</form>
 </div>
 
 </div>
+
+
+<hr />
+<br />
+
+<?php require_once "include/footer.php"; ?>
+
+<br>
 
 <?php require_once "include/footer.php"; ?>
