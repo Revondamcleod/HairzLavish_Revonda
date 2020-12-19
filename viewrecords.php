@@ -39,9 +39,7 @@ $result = $crud->gettCustomer();
 
         </table>
     </div>
-    <div class="col">
-        <!-- 3 of 3 -->
-    </div>
+  
 </div>
 
 

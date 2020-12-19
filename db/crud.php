@@ -36,21 +36,20 @@ class crud
     }
 
 
-    public function editCustomer($id, $fname, $lname, $email, $caddress, $gender, $avatar_path)
+    public function editCustomer($id, $fname, $lname, $email, $address, $gender)
     {
         try {
-            $sql = "UPDATE `customer` SET `firstname`=:fname,`lastname`=:lname,`email`=:email,`customer_address`=:caddress,`gender_id`=:gender,`profile_pic`=:avatar_path
-            WHERE `custid` =:id";
-
+            $sql = "UPDATE `customer` SET `firstname`= :fname,`lastname`= :lname,`email_address`= :email,`cus_address`= :cus_address,`gender_id`= :gender WHERE `customer_id` = :id";
+            // prepare the sql statement for excecution
             $stmt = $this->db->prepare($sql);
-            //biind all placeholderto the actual values
+            // bind all placeholders to the actual values
             $stmt->bindparam(':id', $id);
             $stmt->bindparam(':fname', $fname);
             $stmt->bindparam(':lname', $lname);
-            // $stmt->bindparam(':email', $email);
-            $stmt->bindparam(':caddress', $caddress);
+            $stmt->bindparam(':email', $email);
+            $stmt->bindparam(':cus_address', $address);
             $stmt->bindparam(':gender', $gender);
-            //Execute Statement
+            // execute statement
             $stmt->execute();
             return true;
         } catch (PDOException $e) {
@@ -90,7 +89,7 @@ class crud
     {
 
         try {
-            $sql = "DELETE FROM `customer` WHERE `custid` =:id";
+            $sql = "DELETE FROM `customer` WHERE `customer_id` =:id";
             $stmt = $this->db->prepare($sql);
             $stmt->bindparam(':id', $id);
             $stmt->execute();
@@ -128,7 +127,8 @@ class crud
         }
     }
 
-    public function checkCustomerEmail($email){
+    public function checkCustomerEmail($email)
+    {
         try {
             $sql = "SELECT COUNT(*) as num FROM customer WHERE email_address = :email";
             $stmt = $this->db->prepare($sql);
@@ -141,6 +141,4 @@ class crud
             return false;
         }
     }
-
 }
-

@@ -1,13 +1,13 @@
 <?php
 $title = "Index";
 require_once "include/header.php";
-//require_once 'db/conn.php';
+require_once 'db/conn.php';
 
-//get all Specialties
-//$result = $crud->getSpecialties();
+//get all Gender
+$result = $crud->getGender();
 ?>
 <div>
-    
+
 <div class="article-list">
         <div class="container">
             <div class="intro">

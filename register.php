@@ -7,7 +7,7 @@ require_once 'db/conn.php';
 //get all Specialties
 $result = $crud->getGender();
 ?>
-<h1 class="text-center">Registration for IT Conference</h1>
+<h1 class="text-center">Registration to Become a Customer of Hairzlavish</h1>
 
 
 <form method="post" enctype="multipart/form-data" action="success.php">
@@ -49,6 +49,7 @@ $result = $crud->getGender();
     </div>
     <br />
     <br />
+    <br>
 
 
     <button type="submit" name="submit" class="btn btn-primary btn-block">Submit</button>

@@ -3,7 +3,7 @@
 
     class SendEmail{
         public static function SendMail($to, $subject, $content){
-            $key = '66A4AAC8F29C0657F7E1DD256E658AD5C636D019AAC65F3A3E32E4F3AB6777E5432829E0EDEB84C18A917D37D0EB4280';
+            $key = 'C3132FE9EC3FEDA9DFC2DDF3D66A2CBAC6A0D32B3BD6AF6A28CF341857A35831E33451F440B2CA3B6E36604B918E9302';
             $url = 'https://api.elasticemail.com/v2/email/send';
 
               // $email = new \SendGrid\Mail\Mail();
@@ -15,7 +15,7 @@
 
             try {
 
-                $email = array('from' => 'nahumkelly73@gmail.com',
+                $email = array('from' => 'revondamcleodacca@gmail.com',
                 'fromName' => 'IT Conference',
                 'apikey' => $key,
                 'subject' => $subject,

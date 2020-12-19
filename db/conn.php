@@ -25,11 +25,12 @@
     }
 
     require_once 'crud.php';
-    // require_once 'user.php';
+    require_once 'user.php';
     $crud = new crud($pdo);
-    // $user = new user($pdo);
+    $user = new user($pdo);
 
-    // $user->insertuser("admin","password");
-    // $user->insertuser("nkelly","J@son5667076");
+    $user->insertuser("admin","password");
+    $user->insertuser("admin","@dministrat0r");
+    
 
 ?>
